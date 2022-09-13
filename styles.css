@@ -1,0 +1,28 @@
+.logo {
+	margin: 40px;
+}
+
+.dibujar {
+	background: #dddddd;
+	width: 294px;
+        height: 360px;	
+}
+
+.palabra-oculta {
+	background: #aadddd;
+	width: 294px;
+        height: 60px;	
+}
+
+.letras-encontradas {
+	background: #77dddd;
+	width: 294px;
+        height: 60px;	
+}
+
+footer {
+	text-align: center;
+	margin: 0 30px;
+	font-size: 0.8em;
+}
+

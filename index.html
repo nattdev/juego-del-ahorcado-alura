@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Codificador de texto">
+		<title>Juego del Ahorcado</title>
+		<link rel="stylesheet" href="styles.css" type="text/css">
+	</head>
+	<body>
+		<header>
+			<img class="logo" src="images/logo.svg" alt="Logo de Alura Latam">
+		</header>
+		<main>
+			<section class="pantalla-menu">
+				<button id="btn-iniciar-juego">Iniciar Juego</button>
+				<button id="btn-agregar-palabra">Agregar nueva palabra</button>
+			</section>
+			<section class="pantalla-agregar-palabra">
+				<textarea placeholder="Ingrese una palabra"></textarea>
+				<p>Máx. de 8 letras</p>
+				<div class="botones">
+					<button id="btn-guardar-palabra">Guardar y empezar</button>
+					<button id="btn-cancelar">Cancelar</button>
+				</div>
+			</section>
+			<section class="pantalla-iniciar-juego">
+				<div class="dibujar">
+				</div>
+				<div class="palabra-oculta">
+				</div>
+				<div class="letras-encontradas">
+				</div>
+				<div class="botones">
+					<button id="btn-nuevo-juego">Nuevo Juego</button>
+					<button id="btn-desistir">Desistir</button>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<p>Desarrollado por <a href="https://github.com/nattdev">nattdev <img src="images/github-icon.svg"></a> | Diseño por Alura © 2022 Juego del Ahorcado</p>
+		</footer>
+		<script src="main.js"></script>
+	</body>
+</html>
+
