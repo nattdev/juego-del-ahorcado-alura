@@ -18,7 +18,6 @@ function dibujarLetraIncorrecta() {
 }
 
 function dibujarLetra() {
-	if(palabraSecreta.includes(keyValue)){
 		let indices = [];
 		let idx = palabraSecreta.indexOf(keyValue);
 		while (idx != -1) {
@@ -29,15 +28,24 @@ function dibujarLetra() {
 		for (let i of indices ){
 			boxPalabraOculta.children[i].innerText = keyValue;
 		}
-	}
-	
 }
 
 function capturarTecla() {
 	document.addEventListener("keydown", (e) => {
 		keyValue = e.key;
-		dibujarLetra();
 		console.log(keyValue);
+		if(verificarTecla()){
+			if(palabraSecreta.includes(keyValue)){
+				dibujarLetra();
+			} else {
+				if (!boxLetrasEncontradas.textContent.includes(keyValue)) {
+					dibujarLetraIncorrecta();
+				}
+			}
+		} else {
+			console.log("Letra no valida");
+		}
+
 	});
 }
 
