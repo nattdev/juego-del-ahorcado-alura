@@ -9,10 +9,18 @@
 }
 
 .palabra-oculta {
+	display: flex;
 	background: #aadddd;
 	width: 294px;
         height: 60px;	
 }
+
+.palabra-oculta div {
+	border-bottom: 3px solid #000099;
+	margin: 4px;
+	flex-grow: 1;
+}
+
 
 .letras-encontradas {
 	background: #77dddd;
