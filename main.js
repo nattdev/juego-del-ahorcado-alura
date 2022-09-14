@@ -3,13 +3,22 @@ let listaPalabras = ["primera", "segunda", "tercera", "cuarta"];
 let btnIniciarJuego = document.querySelector("#btn-iniciar-juego");
 let btnAgregarPalabra = document.querySelector("#btn-agregar-palabra");
 
+let boxDibujo = document.querySelector(".dibujar img");
 let boxPalabraOculta = document.querySelector(".palabra-oculta");
 let boxLetrasEncontradas = document.querySelector(".letras-encontradas");
 
+
 let palabraSecreta = "";
 let keyValue = "";
+let intento = 0;
 
 let diccionario = "abcdefgjhijklmnñopqrstuvwxyz";
+
+
+function dibujarIntentosFallidos(intento) {
+	let partesDibujo = ["images/horca.svg", "images/cabeza.svg", "images/tronco.svg","images/pierna-izq.svg", "images/pierna-der.svg", "images/brazo-izq.svg", "images/brazo-der.svg"];
+	boxDibujo.src = partesDibujo[intento];
+}
 
 function dibujarLetraIncorrecta() {
 	let letraIncorrecta = document.createElement("div");
@@ -82,9 +91,9 @@ function limpiarPalabra() {
 
 function iniciarJuego(){	
 	limpiarPalabra();
-	capturarTecla();
 	escogerPalabra();
 	crearLineasPalabra();
+	capturarTecla();
 }
 
 
