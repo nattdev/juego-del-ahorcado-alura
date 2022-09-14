@@ -4,11 +4,18 @@ let btnIniciarJuego = document.querySelector("#btn-iniciar-juego");
 let btnAgregarPalabra = document.querySelector("#btn-agregar-palabra");
 
 let boxPalabraOculta = document.querySelector(".palabra-oculta");
+let boxLetrasEncontradas = document.querySelector(".letras-encontradas");
 
 let palabraSecreta = "";
 let keyValue = "";
 
 let diccionario = "abcdefgjhijklmnñopqrstuvwxyz";
+
+function dibujarLetraIncorrecta() {
+	let letraIncorrecta = document.createElement("div");
+	letraIncorrecta.innerText = keyValue;
+	boxLetrasEncontradas.appendChild(letraIncorrecta);
+}
 
 function dibujarLetra() {
 	if(palabraSecreta.includes(keyValue)){
@@ -23,6 +30,7 @@ function dibujarLetra() {
 			boxPalabraOculta.children[i].innerText = keyValue;
 		}
 	}
+	
 }
 
 function capturarTecla() {
