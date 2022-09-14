@@ -10,9 +10,25 @@ let keyValue = "";
 
 let diccionario = "abcdefgjhijklmnñopqrstuvwxyz";
 
+function dibujarLetra() {
+	if(palabraSecreta.includes(keyValue)){
+		let indices = [];
+		let idx = palabraSecreta.indexOf(keyValue);
+		while (idx != -1) {
+			indices.push(idx);
+			idx = palabraSecreta.indexOf(keyValue, idx + 1);
+		}
+		console.log(indices);
+		for (let i of indices ){
+			boxPalabraOculta.children[i].innerText = keyValue;
+		}
+	}
+}
+
 function capturarTecla() {
 	document.addEventListener("keydown", (e) => {
 		keyValue = e.key;
+		dibujarLetra();
 		console.log(keyValue);
 	});
 }
