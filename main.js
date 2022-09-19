@@ -15,6 +15,24 @@ let intento = 0;
 let diccionario = "abcdefgjhijklmnñopqrstuvwxyz";
 
 
+function verificarFinJuego() {
+	if(intento < 7){
+				if(palabraSecreta.includes(keyValue)){
+					dibujarLetra();
+				} else {
+					if (!boxLetrasEncontradas.textContent.includes(keyValue)) {
+						dibujarLetraIncorrecta();
+						dibujarIntentosFallidos(intento);
+						intento++;
+						console.log(intento);
+					} 
+				}
+			} if(intento >= 7) {
+				console.log("perdiste");
+				alert("perdiste");
+			}
+}
+
 function dibujarIntentosFallidos(intento) {
 	let partesDibujo = ["images/horca.svg", "images/cabeza.svg", "images/tronco.svg","images/pierna-izq.svg", "images/pierna-der.svg", "images/brazo-izq.svg", "images/brazo-der.svg"];
 	boxDibujo.src = partesDibujo[intento];
@@ -44,13 +62,7 @@ function capturarTecla() {
 		keyValue = e.key;
 		console.log(keyValue);
 		if(verificarTecla()){
-			if(palabraSecreta.includes(keyValue)){
-				dibujarLetra();
-			} else {
-				if (!boxLetrasEncontradas.textContent.includes(keyValue)) {
-					dibujarLetraIncorrecta();
-				}
-			}
+			verificarFinJuego();	
 		} else {
 			console.log("Letra no valida");
 		}
@@ -87,6 +99,7 @@ function limpiarPalabra() {
 	while(boxPalabraOculta.hasChildNodes()) {
 		boxPalabraOculta.removeChild(boxPalabraOculta.firstChild);
 	}
+	intento = 0;
 }
 
 function iniciarJuego(){	
