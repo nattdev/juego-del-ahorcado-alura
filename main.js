@@ -8,11 +8,18 @@ let boxPalabraOculta = document.querySelector(".palabra-oculta");
 let boxLetrasEncontradas = document.querySelector(".letras-encontradas");
 
 
-let palabraSecreta = "";
+let palabraSecreta = "none";
 let keyValue = "";
 let intento = 0;
 
 let diccionario = "abcdefgjhijklmnñopqrstuvwxyz";
+
+
+
+function verificarGanador() {
+	console.log(boxPalabraOculta.textContent == palabraSecreta);
+	return boxPalabraOculta.textContent == palabraSecreta;
+}
 
 function messageFinJuego() {
 	alert("PERDISTE :(");
@@ -20,19 +27,26 @@ function messageFinJuego() {
 
 function verificarFinJuego() {
 	if(intento < 7){
-				if(palabraSecreta.includes(keyValue)){
-					dibujarLetra();
-				} else {
-					if (!boxLetrasEncontradas.textContent.includes(keyValue)) {
-						dibujarLetraIncorrecta();
-						dibujarIntentosFallidos(intento);
-						intento++;
-						console.log(intento);
-					} 
-				}
-			} if(intento >= 7) {
-				messageFinJuego();	
-			}
+			if(palabraSecreta.includes(keyValue)){
+			dibujarLetra();
+			} else {
+				if (!boxLetrasEncontradas.textContent.includes(keyValue)) {
+					dibujarLetraIncorrecta();
+					dibujarIntentosFallidos(intento);
+					intento++;
+					console.log(intento);
+				} 
+			}	
+	}
+	if(!verificarGanador()){
+		if(intento >= 7) {
+		messageFinJuego();	
+		}	
+	} else {
+		console.log("GANASTE :)");	
+	}
+
+	
 }
 
 function dibujarIntentosFallidos(intento) {
