@@ -14,6 +14,9 @@ let intento = 0;
 
 let diccionario = "abcdefgjhijklmnñopqrstuvwxyz";
 
+function messageFinJuego() {
+	alert("PERDISTE :(");
+}
 
 function verificarFinJuego() {
 	if(intento < 7){
@@ -28,8 +31,7 @@ function verificarFinJuego() {
 					} 
 				}
 			} if(intento >= 7) {
-				console.log("perdiste");
-				alert("perdiste");
+				messageFinJuego();	
 			}
 }
 
