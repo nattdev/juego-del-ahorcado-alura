@@ -14,6 +14,9 @@ let intento = 0;
 
 let diccionario = "abcdefgjhijklmnñopqrstuvwxyz";
 
+function messageGanador() {
+	alert("FELICIDADES GANASTE!");
+}
 
 
 function verificarGanador() {
@@ -28,7 +31,7 @@ function messageFinJuego() {
 function verificarFinJuego() {
 	if(intento < 7){
 			if(palabraSecreta.includes(keyValue)){
-			dibujarLetra();
+				dibujarLetra();
 			} else {
 				if (!boxLetrasEncontradas.textContent.includes(keyValue)) {
 					dibujarLetraIncorrecta();
@@ -43,7 +46,7 @@ function verificarFinJuego() {
 		messageFinJuego();	
 		}	
 	} else {
-		console.log("GANASTE :)");	
+		messageGanador();
 	}
 
 	
