@@ -4,10 +4,13 @@ let btnIniciarJuego = document.querySelector("#btn-iniciar-juego");
 let btnAgregarPalabra = document.querySelector("#btn-agregar-palabra");
 let btnDesistir = document.querySelector("#btn-desistir");
 let btnNuevoJuego = document.querySelector("#btn-nuevo-juego");
+let btnGuardarPalabra = document.querySelector("#btn-guardar-palabra");
+
 
 let boxDibujo = document.querySelector(".dibujar img");
 let boxMessages = document.querySelector(".dibujar .messages")
 
+let boxAgregarPalabra = document.querySelector(".pantalla-agregar-palabra textarea");
 let boxPalabraOculta = document.querySelector(".palabra-oculta");
 let boxLetrasEncontradas = document.querySelector(".letras-encontradas");
 
@@ -34,6 +37,7 @@ function mostrarPantallaAgregarPalabra() {
 function mostrarPantallaIniciarJuego() {
 	pantallaMenu.style.display = "none";
 	pantallaIniciarJuego.style.display = "unset";
+	pantallaAgregarPalabra.style.display = "none";
 }
 
 function messageGanador() {
@@ -126,8 +130,16 @@ function escogerPalabra() {
 	console.log(palabraSecreta);
 }
 
-function agregarPalabra(palabra) {
-	listaPalabras.push(palabra);
+function guardarPalabra(palabra) {
+	if (palabra !== "") {
+		listaPalabras.push(palabra);
+	}
+
+}
+
+function guardarEmpezarPalabra () {
+	guardarPalabra(boxAgregarPalabra.value);
+	iniciarJuego();
 }
 
 function aleatorizarPalabra(listaPalabras) {
@@ -175,3 +187,4 @@ btnNuevoJuego.addEventListener("click", iniciarJuego);
 btnIniciarJuego.addEventListener("click", iniciarJuego);
 btnAgregarPalabra.addEventListener("click", mostrarPantallaAgregarPalabra);
 btnDesistir.addEventListener("click", mostrarPantallaMenu);
+btnGuardarPalabra.addEventListener("click", guardarEmpezarPalabra);
