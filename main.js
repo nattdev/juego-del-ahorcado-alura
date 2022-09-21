@@ -5,6 +5,7 @@ let btnAgregarPalabra = document.querySelector("#btn-agregar-palabra");
 let btnDesistir = document.querySelector("#btn-desistir");
 let btnNuevoJuego = document.querySelector("#btn-nuevo-juego");
 let btnGuardarPalabra = document.querySelector("#btn-guardar-palabra");
+let btnCancelar =  document.querySelector("#btn-cancelar");
 
 
 let boxDibujo = document.querySelector(".dibujar img");
@@ -21,12 +22,14 @@ let pantallaAgregarPalabra = document.querySelector(".pantalla-agregar-palabra")
 let palabraSecreta = "none";
 let keyValue = "";
 let intento = 0;
+let onOff = 0;
 
 let diccionario = "abcdefgjhijklmnñopqrstuvwxyz";
 
 function mostrarPantallaMenu() {
 	pantallaMenu.style.display = "flex";
 	pantallaIniciarJuego.style.display = "none";
+	pantallaAgregarPalabra.style.display = "none";
 }
 
 function mostrarPantallaAgregarPalabra() {
@@ -102,16 +105,18 @@ function dibujarLetra() {
 }
 
 function capturarTecla() {
-	document.addEventListener("keydown", (e) => {
+	if(onOff == 0 ){
+		document.addEventListener("keydown", (e) => {
+		onOff = 1;
 		keyValue = e.key;
 		console.log(keyValue);
-		if(verificarTecla()){
+			if(verificarTecla()){
 			verificarFinJuego();	
-		} else {
+			} else {
 			console.log("Letra no valida");
-		}
-
-	});
+			}
+		});
+	}
 }
 
 function verificarTecla() {
@@ -188,3 +193,4 @@ btnIniciarJuego.addEventListener("click", iniciarJuego);
 btnAgregarPalabra.addEventListener("click", mostrarPantallaAgregarPalabra);
 btnDesistir.addEventListener("click", mostrarPantallaMenu);
 btnGuardarPalabra.addEventListener("click", guardarEmpezarPalabra);
+btnCancelar.addEventListener("click", mostrarPantallaMenu);
