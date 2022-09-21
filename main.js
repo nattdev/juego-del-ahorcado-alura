@@ -9,12 +9,20 @@ let boxMessages = document.querySelector(".dibujar .messages")
 let boxPalabraOculta = document.querySelector(".palabra-oculta");
 let boxLetrasEncontradas = document.querySelector(".letras-encontradas");
 
+let pantallaMenu = document.querySelector(".pantalla-menu");
+let pantallaIniciarJuego = document.querySelector(".pantalla-iniciar-juego");
+let pantallaAgregarPalabra = document.querySelector(".pantalla-agregar-palabra");
 
 let palabraSecreta = "none";
 let keyValue = "";
 let intento = 0;
 
 let diccionario = "abcdefgjhijklmnñopqrstuvwxyz";
+
+function mostrarPantallaIniciarJuego() {
+	pantallaMenu.style.display = "none";
+	pantallaIniciarJuego.style.display = "unset";
+}
 
 function messageGanador() {
 	boxMessages.innerText = "FELICIDADES GANASTE!";
@@ -123,6 +131,7 @@ function limpiarPalabra() {
 }
 
 function iniciarJuego(){	
+	mostrarPantallaIniciarJuego();
 	limpiarPalabra();
 	escogerPalabra();
 	crearLineasPalabra();
