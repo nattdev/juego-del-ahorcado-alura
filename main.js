@@ -4,6 +4,8 @@ let btnIniciarJuego = document.querySelector("#btn-iniciar-juego");
 let btnAgregarPalabra = document.querySelector("#btn-agregar-palabra");
 
 let boxDibujo = document.querySelector(".dibujar img");
+let boxMessages = document.querySelector(".dibujar .messages")
+
 let boxPalabraOculta = document.querySelector(".palabra-oculta");
 let boxLetrasEncontradas = document.querySelector(".letras-encontradas");
 
@@ -15,9 +17,8 @@ let intento = 0;
 let diccionario = "abcdefgjhijklmnñopqrstuvwxyz";
 
 function messageGanador() {
-	alert("FELICIDADES GANASTE!");
+	boxMessages.innerText = "FELICIDADES GANASTE!";
 }
-
 
 function verificarGanador() {
 	console.log(boxPalabraOculta.textContent == palabraSecreta);
@@ -25,7 +26,7 @@ function verificarGanador() {
 }
 
 function messageFinJuego() {
-	alert("PERDISTE :(");
+	boxMessages.innerText = "PERDISTE :(";
 }
 
 function verificarFinJuego() {
