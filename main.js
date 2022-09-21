@@ -2,6 +2,8 @@ let listaPalabras = ["primera", "segunda", "tercera", "cuarta"];
 
 let btnIniciarJuego = document.querySelector("#btn-iniciar-juego");
 let btnAgregarPalabra = document.querySelector("#btn-agregar-palabra");
+let btnDesistir = document.querySelector("#btn-desistir");
+let btnNuevoJuego = document.querySelector("#btn-nuevo-juego");
 
 let boxDibujo = document.querySelector(".dibujar img");
 let boxMessages = document.querySelector(".dibujar .messages")
@@ -135,14 +137,35 @@ function limpiarPalabra() {
 	intento = 0;
 }
 
+function limpiarLetrasEncontradas() {
+	while(boxLetrasEncontradas.hasChildNodes()) {
+		boxLetrasEncontradas.removeChild(boxLetrasEncontradas.firstChild);
+	}
+}
+
+function limpiarDibujarImagen() {
+	boxDibujo.src = "";
+}
+
+function limpiarMessages() {
+	boxMessages.innerText = "";
+}
+
+function limpiarPantallaJuego() {
+	limpiarPalabra();
+	limpiarLetrasEncontradas();
+	limpiarDibujarImagen();
+	limpiarMessages();
+}
+
 function iniciarJuego(){	
 	mostrarPantallaIniciarJuego();
-	limpiarPalabra();
+	limpiarPantallaJuego();
 	escogerPalabra();
 	crearLineasPalabra();
 	capturarTecla();
 }
 
-
+btnNuevoJuego.addEventListener("click", iniciarJuego);
 btnIniciarJuego.addEventListener("click", iniciarJuego);
 btnAgregarPalabra.addEventListener("click", mostrarPantallaAgregarPalabra);
