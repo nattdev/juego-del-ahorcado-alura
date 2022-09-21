@@ -21,6 +21,11 @@ let intento = 0;
 
 let diccionario = "abcdefgjhijklmnñopqrstuvwxyz";
 
+function mostrarPantallaMenu() {
+	pantallaMenu.style.display = "flex";
+	pantallaIniciarJuego.style.display = "none";
+}
+
 function mostrarPantallaAgregarPalabra() {
 	pantallaMenu.style.display = "none";
 	pantallaAgregarPalabra.style.display = "unset";
@@ -169,3 +174,4 @@ function iniciarJuego(){
 btnNuevoJuego.addEventListener("click", iniciarJuego);
 btnIniciarJuego.addEventListener("click", iniciarJuego);
 btnAgregarPalabra.addEventListener("click", mostrarPantallaAgregarPalabra);
+btnDesistir.addEventListener("click", mostrarPantallaMenu);
