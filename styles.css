@@ -11,11 +11,14 @@ body {
 }
 
 header {
-	flex-grow: 1;
+	flex-grow: 0;
 }
 
 main {
+	display: flex;
 	flex-grow: 3;
+	justify-content: center;
+	align-items: center;
 }
 
 footer {
@@ -48,7 +51,7 @@ footer {
 .logo {
 	width: 130px;
 	height: 48px;
-	padding: 20px;
+	padding-top: 20px;
 }
 
 main section {
@@ -57,6 +60,39 @@ main section {
 
 .pantalla-iniciar-juego, .pantalla-agregar-palabra {
 	display: none;
+	flex-direction: column;
+}
+
+.pantalla-iniciar-juego {
+	height: 100%;
+	width: 100%;
+}
+
+
+.dibujar {
+	flex-grow: 3;
+	text-align: center;
+	position: relative;
+}
+
+.dibujar .messages{
+   	position: absolute;
+   	top: calc(50% - 1em);
+   	width: 100%;
+   	color: #ffffff;
+}
+
+.win-msg {
+   	background: #0A3871;
+}
+
+.loser-msg {
+   	background: #cb1b1b;
+}
+
+.pantalla-iniciar-juego img {
+	width: auto;
+	height: 100%;
 }
 
 .pantalla-agregar-palabra > * {
@@ -64,9 +100,9 @@ main section {
 	margin: auto;
 }
 
-
 .pantalla-agregar-palabra textarea {
-	margin: 0 15%;
+	display: block;
+	margin: auto;
 	resize: none;
 	font-size: 2em;
 	color: #0A3871;
@@ -90,19 +126,9 @@ main section {
 	text-align: center;
 }
 
-.dibujar {
-	/*background: #dddddd;*/
-	width: 294px;
-        height: 360px;	
-	text-align: center;
-}
-
 .palabra-oculta {
 	display: flex;
-	/*background: #aadddd;*/
-	width: 294px;
-        height: 60px;
-	padding-top: 120px;
+	min-height: 3.5em;
 }
 
 .palabra-oculta div {
@@ -116,14 +142,12 @@ main section {
 
 
 .letras-encontradas {
-	/*background: #77dddd;*/
-	width: 294px;
-        height: 60px;	
 	padding: 10px 20px;
 	display: flex;
 	font-weight: 300;
 	color: #0A3871;
 	font-size: 1.2em;
+	min-height: 2.4em;
 }
 
 .letras-encontradas div {

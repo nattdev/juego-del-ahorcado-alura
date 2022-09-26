@@ -34,16 +34,17 @@ function mostrarPantallaMenu() {
 
 function mostrarPantallaAgregarPalabra() {
 	pantallaMenu.style.display = "none";
-	pantallaAgregarPalabra.style.display = "unset";
+	pantallaAgregarPalabra.style.display = "flex";
 }
 
 function mostrarPantallaIniciarJuego() {
 	pantallaMenu.style.display = "none";
-	pantallaIniciarJuego.style.display = "unset";
+	pantallaIniciarJuego.style.display = "flex";
 	pantallaAgregarPalabra.style.display = "none";
 }
 
 function messageGanador() {
+	boxMessages.classList.add("win-msg");
 	boxMessages.innerText = "FELICIDADES GANASTE!";
 }
 
@@ -53,6 +54,7 @@ function verificarGanador() {
 }
 
 function messageFinJuego() {
+	boxMessages.classList.add("loser-msg");
 	boxMessages.innerText = "PERDISTE :(";
 }
 
@@ -166,7 +168,7 @@ function limpiarLetrasEncontradas() {
 }
 
 function limpiarDibujarImagen() {
-	boxDibujo.src = "";
+	boxDibujo.src = "images/base.svg";
 }
 
 function limpiarMessages() {
