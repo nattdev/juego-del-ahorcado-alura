@@ -1,4 +1,4 @@
-let listaPalabras = ["primera", "segunda", "tercera", "cuarta"];
+let listaPalabras = ["SANDIA", "UVA", "PERA", "MANGO", "KIWI", "PLATANO", "FRESA"];
 
 let btnIniciarJuego = document.querySelector("#btn-iniciar-juego");
 let btnAgregarPalabra = document.querySelector("#btn-agregar-palabra");
@@ -25,6 +25,7 @@ let intento = 0;
 let onOff = 0;
 
 let diccionario = "abcdefgjhijklmnñopqrstuvwxyz";
+let diccionarioUpperCase = "ABCDEFGJHIJKLMNÑOPQRSTUVWXYZ";
 
 function mostrarPantallaMenu() {
 	pantallaMenu.style.display = "flex";
@@ -111,7 +112,7 @@ function capturarTecla() {
 	if(onOff == 0 ){
 		document.addEventListener("keydown", (e) => {
 		onOff = 1;
-		keyValue = e.key;
+		keyValue = e.key.toUpperCase();
 		console.log(keyValue);
 			if(verificarTecla()){
 			verificarFinJuego();	
@@ -123,7 +124,7 @@ function capturarTecla() {
 }
 
 function verificarTecla() {
-	return (diccionario.includes(keyValue));
+	return (diccionario.includes(keyValue) || diccionarioUpperCase.includes(keyValue));
 }
 
 function crearLineasPalabra() {
@@ -146,7 +147,7 @@ function guardarPalabra(palabra) {
 }
 
 function guardarEmpezarPalabra () {
-	guardarPalabra(boxAgregarPalabra.value);
+	guardarPalabra(boxAgregarPalabra.value.toUpperCase());
 	boxAgregarPalabra.value = "";
 	iniciarJuego();
 }
