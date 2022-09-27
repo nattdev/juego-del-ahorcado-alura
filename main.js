@@ -47,6 +47,7 @@ function mostrarPantallaIniciarJuego() {
 
 function messageGanador() {
 	boxMessages.classList.add("win-msg");
+	boxMessages.classList.remove("loser-msg");
 	boxMessages.innerText = "FELICIDADES GANASTE!";
 }
 
@@ -57,6 +58,7 @@ function verificarGanador() {
 
 function messageFinJuego() {
 	boxMessages.classList.add("loser-msg");
+	boxMessages.classList.remove("win-msg");
 	boxMessages.innerText = "PERDISTE :(";
 }
 
