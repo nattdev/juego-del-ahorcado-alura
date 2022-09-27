@@ -30,6 +30,7 @@ function mostrarPantallaMenu() {
 	pantallaMenu.style.display = "flex";
 	pantallaIniciarJuego.style.display = "none";
 	pantallaAgregarPalabra.style.display = "none";
+	boxAgregarPalabra.value = "";
 }
 
 function mostrarPantallaAgregarPalabra() {
@@ -146,6 +147,7 @@ function guardarPalabra(palabra) {
 
 function guardarEmpezarPalabra () {
 	guardarPalabra(boxAgregarPalabra.value);
+	boxAgregarPalabra.value = "";
 	iniciarJuego();
 }
 

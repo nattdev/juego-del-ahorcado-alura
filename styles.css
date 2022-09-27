@@ -73,6 +73,7 @@ main section {
 	flex-grow: 3;
 	text-align: center;
 	position: relative;
+	margin-bottom: 1em!important;
 }
 
 .dibujar .messages{
@@ -109,6 +110,7 @@ main section {
 	background: transparent;
 	border: none;
 	font-family: inherit;	
+	padding: 1em 0;
 } 
 
 
@@ -121,7 +123,7 @@ main section {
 }
 
 .pantalla-iniciar-juego div{
-	width: 70%;
+	width: 80%;
 	margin: auto;
 	text-align: center;
 }
