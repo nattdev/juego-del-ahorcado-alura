@@ -62,28 +62,30 @@ function messageFinJuego() {
 	boxMessages.innerText = "PERDISTE :(";
 }
 
-function verificarFinJuego() {
-	if(intento < 7){
-			if(palabraSecreta.includes(keyValue)){
-				dibujarLetra();
-			} else {
-				if (!boxLetrasEncontradas.textContent.includes(keyValue)) {
-					dibujarLetraIncorrecta();
-					dibujarIntentosFallidos(intento);
-					intento++;
-					console.log(intento);
-				} 
-			}	
-	}
-	if(!verificarGanador()){
-		if(intento >= 7) {
-		messageFinJuego();	
-		}	
+function logicaJuego() {
+	if(palabraSecreta.includes(keyValue)){
+		dibujarLetra();
 	} else {
+		if (!boxLetrasEncontradas.textContent.includes(keyValue)) {
+			dibujarLetraIncorrecta();
+			dibujarIntentosFallidos(intento);
+			intento++;
+		} 
+	}
+	console.log(intento);
+}
+
+
+function verificarFinJuego() {
+	if(intento < 7 && !verificarGanador()) {
+		logicaJuego();
+	}
+	if(verificarGanador()) {
 		messageGanador();
 	}
-
-	
+	if(intento >= 7){
+		messageFinJuego();	
+	}	
 }
 
 function dibujarIntentosFallidos(intento) {
@@ -110,18 +112,21 @@ function dibujarLetra() {
 		}
 }
 
+
+function capturarEventoTecla(e){
+	onOff = 1;
+	keyValue = e.key.toUpperCase();
+	console.log(keyValue);
+		if(verificarTecla()){
+			verificarFinJuego();	
+		} else {
+			console.log("Letra no valida");
+		}
+}
+
 function capturarTecla() {
 	if(onOff == 0 ){
-		document.addEventListener("keydown", (e) => {
-		onOff = 1;
-		keyValue = e.key.toUpperCase();
-		console.log(keyValue);
-			if(verificarTecla()){
-			verificarFinJuego();	
-			} else {
-			console.log("Letra no valida");
-			}
-		});
+		document.addEventListener("keydown", capturarEventoTecla);
 	}
 }
 
