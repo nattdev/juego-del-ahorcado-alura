@@ -80,6 +80,7 @@ main section {
 .pantalla-iniciar-juego {
 	height: 100%;
 	width: 100%;
+	position: relative;
 }
 
 
@@ -168,3 +169,15 @@ main section {
 .letras-encontradas div {
 	flex-grow: 1;
 }
+
+.teclado-mobile {
+	position: relative;
+	box-sizing: border-box;
+}
+
+.teclado-mobile img {
+	vertical-align: bottom;
+	padding: 0 1%;
+}
+
+
