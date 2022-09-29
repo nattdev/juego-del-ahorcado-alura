@@ -220,6 +220,7 @@ function iniciarJuego(){
 }
 
 crearTecladoVirtual();
+crearEventosTeclado();
 
 btnNuevoJuego.addEventListener("click", iniciarJuego);
 btnIniciarJuego.addEventListener("click", iniciarJuego);
