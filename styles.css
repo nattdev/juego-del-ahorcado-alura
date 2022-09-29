@@ -171,13 +171,20 @@ main section {
 }
 
 .teclado-mobile {
-	position: relative;
-	box-sizing: border-box;
+       	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
-.teclado-mobile img {
-	vertical-align: bottom;
-	padding: 0 1%;
+.teclado-mobile div {
+       	display: inline-block;
+	max-width: 2em;
+	background: #88898d;
+	padding: 1%;
+	margin: 4px;
+	color: #ffffff;
+	box-sizing: border-box;
+	cursor: pointer;
 }
 
 

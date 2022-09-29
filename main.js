@@ -14,6 +14,7 @@ let boxMessages = document.querySelector(".dibujar .messages")
 let boxAgregarPalabra = document.querySelector(".pantalla-agregar-palabra textarea");
 let boxPalabraOculta = document.querySelector(".palabra-oculta");
 let boxLetrasEncontradas = document.querySelector(".letras-encontradas");
+let boxTecladoMobile = document.querySelector(".teclado-mobile");
 
 let pantallaMenu = document.querySelector(".pantalla-menu");
 let pantallaIniciarJuego = document.querySelector(".pantalla-iniciar-juego");
@@ -26,6 +27,24 @@ let onOff = 0;
 
 let diccionario = "abcdefgjhijklmnñopqrstuvwxyz";
 let diccionarioUpperCase = "ABCDEFGJHIJKLMNÑOPQRSTUVWXYZ";
+
+function crearTecladoVirtual() {
+	for(let i = 0; i < diccionarioUpperCase.length; i++) {
+		let boxLetra = document.createElement("div");
+		boxLetra.innerText = diccionarioUpperCase[i];
+		boxTecladoMobile.appendChild(boxLetra);
+	}	
+}
+
+function crearEventosTeclado() {
+	for(let i = 0; i < boxTecladoMobile.childNodes.length; i++) {
+		console.log("for");
+		boxTecladoMobile.childNodes[i].addEventListener("click", (e) => {
+			keyValue = e.target.innerText;
+			verificarFinJuego();
+		});
+	}
+}
 
 function mostrarPantallaMenu() {
 	pantallaMenu.style.display = "flex";
@@ -77,14 +96,18 @@ function logicaJuego() {
 
 
 function verificarFinJuego() {
-	if(intento < 7 && !verificarGanador()) {
+	if(verificarTecla()){
+		if(intento < 7 && !verificarGanador()) {
 		logicaJuego();
-	}
-	if(verificarGanador()) {
+		}
+		if(verificarGanador()) {
 		messageGanador();
-	}
-	if(intento >= 7){
+		}
+		if(intento >= 7){
 		messageFinJuego();	
+		}
+	} else {
+		console.log("Letra no valida");
 	}	
 }
 
@@ -117,11 +140,7 @@ function capturarEventoTecla(e){
 	onOff = 1;
 	keyValue = e.key.toUpperCase();
 	console.log(keyValue);
-		if(verificarTecla()){
-			verificarFinJuego();	
-		} else {
-			console.log("Letra no valida");
-		}
+	verificarFinJuego();
 }
 
 function capturarTecla() {
@@ -199,6 +218,8 @@ function iniciarJuego(){
 	crearLineasPalabra();
 	capturarTecla();
 }
+
+crearTecladoVirtual();
 
 btnNuevoJuego.addEventListener("click", iniciarJuego);
 btnIniciarJuego.addEventListener("click", iniciarJuego);
